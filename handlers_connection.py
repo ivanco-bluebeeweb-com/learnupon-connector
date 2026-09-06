@@ -48,7 +48,7 @@ async def resolve_connection(ctx, connection_id: str = "") -> dict | None:
 )
 async def connect_learnupon(params: ConnectParams, ctx) -> ActionResult[ConnectionRecord]:
     """Connect LearnUpon Connector."""
-    client = LearnuponClient(api_key=params.api_key, base_url=params.base_url)
+    client = LearnUponClient(api_key=params.api_key, base_url=params.base_url)
     await client.verify_auth()
     conns = await _load_connections(ctx)
     cid = f"conn_{uuid.uuid4().hex[:8]}"
